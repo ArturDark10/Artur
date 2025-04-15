@@ -3,46 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark's Anime</title>
-
+    <title>Dark's Anime - Abas</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
-    <section id="Dark's Anime"
-tabindex="0">
 
-    <h1> Dark's Anime </h1>
+    <div class="container">
+        <h1>Dark's Anime</h1>
 
-    <img src="https://i.pinimg.com/736x/d5/9a/93/d59a9393d0c30a30260c8b6420548261.jpg" alt="Dark's Anime">
+        <!-- Abas -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('shounen')">Shounen</button>
+            <button class="tab-button" onclick="showTab('romance')">Romance</button>
+            <button class="tab-button" onclick="showTab('terror')">Terror</button>
+        </div>
 
-    <h2> Artur N.H </h2>
+        <!-- Conteúdos das abas -->
+        <div id="shounen" class="tab-content active-tab">
+            <h2>Anime Shounen</h2>
+            <img src="https://i.pinimg.com/736x/d5/9a/93/d59a9393d0c30a30260c8b6420548261.jpg" alt="Shounen Anime">
+            <p>Shounens são animes cheios de ação, aventura e superação. Exemplos: Naruto, One Piece, Dragon Ball.</p>
+        </div>
 
-    <button
-    onclick="mostrarImagem()">Mostrar Imagem</button>
-    
-    
-        <img id="imagem"
-    src="https://i.pinimg.com/736x/d5/9a/93/d59a9393d0c30a30260c8b6420548261.jpg" style="display: none; width: 300px;">
-    
-    
-       
-    
-    
-        <script>
-    
-    
-            function mostrarImagem() {
-    
-    
-                document.getElementById("imagem").style.display
-    = "block";
-    
-    
-            }
-    
-    
-        </script>
+        <div id="romance" class="tab-content">
+            <h2>Anime Romance</h2>
+            <img src="https://i.pinimg.com/564x/1d/3e/4d/1d3e4d42ae8542c81360f34365d8cc2e.jpg" alt="Romance Anime">
+            <p>Romances exploram sentimentos e relações emocionantes. Exemplos: Your Name, Toradora, Clannad.</p>
+        </div>
+
+        <div id="terror" class="tab-content">
+            <h2>Anime Terror</h2>
+            <img src="https://i.pinimg.com/736x/c5/e7/58/c5e75899ee739ec2dd2373aa73e3a3f4.jpg" alt="Terror Anime">
+            <p>Terror traz suspense, mistério e tensão. Exemplos: Another, Tokyo Ghoul, Higurashi.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+
+            contents.forEach(content => {
+                content.classList.remove('active-tab');
+            });
+
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active-tab');
+            event.target.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
